@@ -26,19 +26,27 @@ void appendSoundexCode(std::string& soundex, char code, char& prevCode) {
     }
 }
 
-std::string generateSoundex(const std::string& name) {
-    if (name.empty()) return "";
-
+std::string processInitialCharacter(const std::string& name) {
     std::string soundex;
     soundex += std::toupper(name[0]);
+    return soundex;
+}
+
+void processRemainingCharacters(const std::string& name, std::string& soundex) {
     char prevCode = getSoundexCode(name[0]);
 
     for (size_t i = 1; i < name.length() && soundex.length() < 4; ++i) {
         char code = getSoundexCode(name[i]);
         appendSoundexCode(soundex, code, prevCode);
     }
+}
+
+std::string generateSoundex(const std::string& name) {
+    if (name.empty()) return "";
+
+    std::string soundex = processInitialCharacter(name);
+    processRemainingCharacters(name, soundex);
 
     soundex.resize(4, '0');
-
     return soundex;
 }
