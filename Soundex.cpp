@@ -38,9 +38,7 @@ std::string generateSoundex(const std::string& name) {
         appendSoundexCode(soundex, code, prevCode);
     }
 
-    while (soundex.length() < 4) {
-        soundex += '0';
-    }
+    soundex.resize(4, '0');
 
     return soundex;
 }
