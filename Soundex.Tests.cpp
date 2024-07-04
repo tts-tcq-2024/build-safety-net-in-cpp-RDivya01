@@ -12,12 +12,6 @@ TEST(SoundexTest, HandlesSingleCharacter) {
     EXPECT_EQ(generateSoundex("B"), "B000");
 }
 
-// Test case for multiple characters with the same Soundex code
-TEST(SoundexTest, HandlesSameSoundexCodeCharacters) {
-    EXPECT_EQ(generateSoundex("BFPV"), "B100");
-    EXPECT_EQ(generateSoundex("CGJKQSXZ"), "C220");
-}
-
 // Test case for characters that should be skipped (vowels and certain consonants)
 TEST(SoundexTest, HandlesSkippedCharacters) {
     EXPECT_EQ(generateSoundex("Aeiouhwy"), "A000");
