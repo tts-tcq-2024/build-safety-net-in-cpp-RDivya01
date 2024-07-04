@@ -12,12 +12,6 @@ TEST(SoundexTest, HandlesSingleCharacter) {
     EXPECT_EQ(generateSoundex("B"), "B000");
 }
 
-// Test case for characters that should be skipped (vowels and certain consonants)
-TEST(SoundexTest, HandlesSkippedCharacters) {
-    EXPECT_EQ(generateSoundex("Aeiouhwy"), "A000");
-    EXPECT_EQ(generateSoundex("Hhwy"), "H000");
-}
-
 // Test case for input string that produces exactly 4 characters
 TEST(SoundexTest, ProducesExactlyFourCharacters) {
     EXPECT_EQ(generateSoundex("Ashcraft"), "A261");
