@@ -31,6 +31,20 @@ TEST(SoundexTest, HandlesShortInput) {
     EXPECT_EQ(generateSoundex("Li"), "L000");
 }
 
+TEST(SoundexTest, ProducesExactlyFourCharacters) {
+    EXPECT_EQ(generateSoundex("Ashcraft"), "A261");
+}
+
 TEST(SoundexTest, HandlesAllZeros) {
     EXPECT_EQ(generateSoundex("AEIOU"), "A000");
 }
+
+TEST(SoundexTest, HandlesSameSoundexCodeCharacters) {
+    EXPECT_EQ(generateSoundex("BFPV"), "B100");
+}
+
+TEST(SoundexTest, HandlesSkippedCharacters) {
+    EXPECT_EQ(generateSoundex("Aeiouhwy"), "A000");
+}
+
+
