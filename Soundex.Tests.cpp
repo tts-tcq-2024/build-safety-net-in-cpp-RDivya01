@@ -47,3 +47,8 @@ TEST(SoundexTest, HandlesSkippedCharacters) {
     EXPECT_EQ(generateSoundex("Aeiouhwy"), "A000");
 }
 
+TEST(SoundexTest, HandlesSkippedCharacters) {
+    EXPECT_EQ(generateSoundex("BhFyPV"), "B000");
+}
+
+
